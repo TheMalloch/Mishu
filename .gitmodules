@@ -1,0 +1,3 @@
+[submodule "Mini_shell"]
+	path = projects/Mini_shell
+	url = https://gitlab.esiea.fr/menkor/mini_shell.git

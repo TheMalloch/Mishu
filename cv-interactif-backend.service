@@ -1,0 +1,15 @@
+[Unit]
+Description=CV Interactif FastAPI Backend
+After=network.target
+
+[Service]
+User=mishu
+Group=mishu
+WorkingDirectory=/home/mishu/mishu/backend
+Environment="PATH=/home/mishu/mishu/venv/bin"
+ExecStart=/usr/bin/python3 -m uvicorn main:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

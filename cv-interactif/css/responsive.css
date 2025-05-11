@@ -1,0 +1,132 @@
+/* Responsive Design */
+
+/* Tablettes */
+@media (max-width: 992px) {
+    .app-container {
+        width: 95%;
+        height: 90vh;
+    }
+    
+    .sidebar {
+        width: 180px;
+    }
+    
+    .trainer-stats {
+        flex-wrap: wrap;
+    }
+    
+    .stat-box {
+        min-width: 60px;
+    }
+    
+    .project-content {
+        flex-direction: column;
+    }
+    
+    .project-image {
+        width: 100%;
+    }
+    
+    .interests-container {
+        flex-direction: column;
+    }
+    
+    .interests-box {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .app-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 90vh;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid var(--border-color);
+        padding: 10px 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .logo {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    
+    .nav-item {
+        width: auto;
+        padding: 8px 15px;
+        margin: 2px;
+    }
+    
+    .spacer-top {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+    
+    .featured-trainer {
+        flex-direction: column;
+    }
+    
+    .trainer-photo {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 15px auto;
+    }
+    
+    .trainer-actions {
+        flex-direction: column;
+    }
+    
+    .action-button {
+        width: 100%;
+    }
+    
+    .review-card {
+        width: 100%;
+    }
+}
+
+/* Petit mobile */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .back-button {
+        margin-bottom: 10px;
+    }
+    
+    .search-user {
+        flex-direction: column;
+    }
+    
+    .search-bar {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .user-icons {
+        justify-content: center;
+    }
+    
+    .trainer-stats {
+        justify-content: center;
+    }
+}

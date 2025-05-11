@@ -1,0 +1,255 @@
+/* Styles spécifiques pour les fonctionnalités Docker */
+
+.docker-wrapper {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.docker-header {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.docker-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.docker-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.docker-control-btn {
+    padding: 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    background-color: transparent;
+    color: white;
+    font-family: monospace;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.docker-control-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.docker-content {
+    background-color: #1e1e1e;
+    color: #f8f8f8;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.docker-terminal {
+    margin: 0;
+    padding: 10px 15px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 14px;
+}
+
+.docker-terminal:empty::before {
+    content: "Le terminal est prêt à l'emploi...";
+    color: #6c757d;
+    font-style: italic;
+}
+
+.docker-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: #6c757d;
+}
+
+.docker-placeholder-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.docker-placeholder-text {
+    font-size: 16px;
+}
+
+.docker-info {
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-top: 1px solid var(--border-color);
+}
+
+.docker-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.status-running {
+    background-color: #28a745;
+}
+
+.status-stopped {
+    background-color: #dc3545;
+}
+
+.status-loading {
+    background-color: #ffc107;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.docker-footer {
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.docker-badge {
+    background-color: #343a40;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.container-log-entry {
+    margin-bottom: 2px;
+}
+
+.container-log-entry.info {
+    color: #4caf50;
+}
+
+.container-log-entry.error {
+    color: #f44336;
+}
+
+.container-log-entry.warning {
+    color: #ff9800;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--bg-main);
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    overflow: hidden;
+}
+
+.modal-header {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.modal-body {
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #dee2e6;
+    text-align: right;
+}
+
+.modal-btn {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: monospace;
+    margin-left: 10px;
+}
+
+.modal-btn-primary {
+    background-color: #343a40;
+    color: white;
+}
+
+.modal-btn-secondary {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.modal-logs {
+    background-color: #1e1e1e;
+    color: #f8f8f8;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.modal-visible {
+    display: flex;
+}

@@ -1,0 +1,717 @@
+/**
+ * Gestion du char    container.innerHTML = `
+        <div class="page-title">Profil étudiant</div>
+        
+        <div class="featured-trainer">
+            <div class="trainer-photo">
+                <img src="images/profile_new.jpg?v=20250511" alt="Photo de profil" loading="eager" fetchpriority="high">
+            </div>
+            
+            <div class="trainer-info">namique du contenu dans les différentes pages
+ */
+
+/**
+ * Charge le contenu de toutes les pages
+ */
+function loadAllContent() {
+    loadHomePage();
+    loadEducationPage();
+    loadProjectsPage();
+    loadDockerPage();
+    loadSkillsPage();
+    loadContactPage();
+}
+
+/**
+ * Charge le contenu de la page d'accueil
+ */
+function loadHomePage() {
+    const container = document.getElementById('home-page');
+    
+    container.innerHTML = `
+        <div class="page-title">Profil étudiant</div>
+        
+        <div class="featured-trainer">
+            <div class="trainer-photo">
+                <img src="images/profile_new.jpg?v=20250511" alt="Photo de profil" loading="eager" fetchpriority="high">
+            </div>
+            
+            <div class="trainer-info">
+                <div class="trainer-name">Hamza Menkor</div>
+                <div class="trainer-email">hamza.menkor@proton.me</div>
+                
+                <div class="trainer-stats">
+                    <div class="stat-box">
+                        <div class="stat-value">20</div>
+                        <div class="stat-label">ans</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">5+</div>
+                        <div class="stat-label">projets</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">langages</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">875</div>
+                        <div class="stat-label">TOEIC</div>
+                    </div>
+                </div>
+                
+                <div class="trainer-description">
+                    Recherche d'une Alternance dans le domaine de la Cybersécurité, d'administration système, développement à partir de septembre 2025 avec possibilité de continuations en Master. Étudiant en Bachelor en Cybersécurité à l'ESIEA.
+                </div>
+                
+                <div class="trainer-actions">
+                    <button class="action-button primary-button" id="contact-btn">
+                        <span class="action-icon">📝</span> Contacter
+                    </button>
+                    <button class="action-button secondary-button" id="portfolio-btn">
+                        Portfolio
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">
+            Formation
+        </div>
+        
+        <div class="experience-card">
+            <div class="company-logo">🎓</div>
+            <div class="experience-details">
+                <div class="job-title">Bachelor en Cybersécurité, deuxième année</div>
+                <div class="company-name">ESIEA - Ecole Supérieure d'Informatique Électronique Automatique</div>
+                <div class="date-range">En cours - 2026</div>
+            </div>
+        </div>
+        
+        <div class="experience-card">
+            <div class="company-logo">🏫</div>
+            <div class="experience-details">
+                <div class="job-title">Baccalauréat, Spécialisation Maths/Physique Chimie</div>
+                <div class="company-name">LFILM - Lycée Français International Louis Massignon</div>
+                <div class="date-range">2023</div>
+            </div>
+        </div>
+        
+        <div class="stats-box">
+            <div class="big-number">10+</div>
+            <div class="stats-description">
+                Compétences techniques
+            </div>
+            <div class="stats-graph">
+                <div class="graph-line">
+                    <svg class="graph-svg" viewBox="0 0 100 30">
+                        <path d="M0,15 Q10,5 20,20 T40,10 T60,15 T80,5 T100,15" fill="none" stroke="#333" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Ajouter les événements aux boutons
+    document.getElementById('contact-btn').addEventListener('click', function() {
+        navigateTo('contact');
+    });
+    
+    document.getElementById('portfolio-btn').addEventListener('click', function() {
+        navigateTo('projects');
+    });
+}
+
+/**
+ * Charge le contenu de la page Formation
+ */
+function loadEducationPage() {
+    const container = document.getElementById('education-page');
+    
+    container.innerHTML = `
+        <div class="page-title">Formation et Expérience</div>
+        
+        <div class="section-title">
+            Éducation
+        </div>
+        
+        <div class="experience-card">
+            <div class="company-logo">🎓</div>
+            <div class="experience-details">
+                <div class="job-title">Bachelor en Cybersécurité, deuxième année</div>
+                <div class="company-name">ESIEA - Ecole Supérieure d'Informatique Électronique Automatique</div>
+                <div class="date-range">En cours - 2026</div>
+            </div>
+        </div>
+        
+        <div class="experience-card">
+            <div class="company-logo">🏫</div>
+            <div class="experience-details">
+                <div class="job-title">Baccalauréat, Spécialisation Maths/Physique Chimie</div>
+                <div class="company-name">LFILM - Lycée Français International Louis Massignon</div>
+                <div class="date-range">2023</div>
+            </div>
+        </div>
+        
+        <div class="experience-card">
+            <div class="company-logo">💻</div>
+            <div class="experience-details">
+                <div class="job-title">Formation Certifiante en HTML et CSS</div>
+                <div class="company-name">Udemy</div>
+                <div class="date-range">2022</div>
+            </div>
+        </div>
+        
+        <div class="section-title" style="margin-top: 30px;">
+            Stages et Expériences
+        </div>
+        
+        <div class="experience-card">
+            <div class="company-logo">🔒</div>
+            <div class="experience-details">
+                <div class="job-title">Stage - Recherche et Analyse des Vulnérabilités des Infrastructures Réseau</div>
+                <div class="company-name">Casablanca, Maroc</div>
+                <div class="date-range">Juillet 2023 - Août 2023</div>
+            </div>
+        </div>
+        
+        <div class="section-title" style="margin-top: 30px;">
+            Certifications
+        </div>
+        
+        <div class="experience-card">
+            <div class="company-logo">🌐</div>
+            <div class="experience-details">
+                <div class="job-title">Test of English for International Communication (TOEIC)</div>
+                <div class="company-name">Score: 875/990</div>
+                <div class="date-range">2023</div>
+            </div>
+        </div>
+        
+        <div class="experience-card">
+            <div class="company-logo">📊</div>
+            <div class="experience-details">
+                <div class="job-title">International English Language Testing System (IELTS)</div>
+                <div class="company-name">Score: 6.5/9</div>
+                <div class="date-range">2022</div>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Charge le contenu de la page Projets
+ */
+function loadProjectsPage() {
+    const container = document.getElementById('projects-page');
+    
+    container.innerHTML = `
+        <div class="page-title">Projets techniques</div>
+        
+        <div class="project-card">
+            <div class="project-content">
+                <div class="project-image">
+                    <div class="project-thumbnail"><img src="images/icons/programming.png" alt="Mini Shell" width="48" height="48" loading="lazy"></div>
+                    <div class="project-actions">
+                        <button class="action-button primary-button" style="flex: 1;" id="run-mini-shell">
+                            <span class="action-icon">▶️</span> Lancer la démo
+                        </button>
+                    </div>
+                    <div class="project-actions">
+                        <button class="action-button secondary-button" style="flex: 1;">
+                            <span class="action-icon">📥</span> Télécharger
+                        </button>
+                        <button class="action-button secondary-button" style="flex: 1;">
+                            <span class="action-icon">📄</span> Code
+                        </button>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <div class="project-header">
+                        <h3 class="project-title">Mini Shell</h3>
+                        <div class="project-language">Langage C</div>
+                    </div>
+                    <div class="project-tags">
+                        <div class="project-tag">Système</div>
+                        <div class="project-tag">Shell</div>
+                        <div class="project-tag">UNIX</div>
+                    </div>
+                    <p class="project-description">
+                        Interpréteur de commandes UNIX implémenté en C avec:
+                    </p>
+                    <ul class="project-features">
+                        <li>Exécution de commandes système</li>
+                        <li>Gestion des variables d'environnement</li>
+                        <li>Support de redirections d'entrée/sortie</li>
+                        <li>Historique de commandes</li>
+                    </ul>
+                    <div class="project-docker">
+                        <div class="docker-title">Lancer avec Docker:</div>
+                        <code class="docker-command">
+                            docker pull hmenkor/mini-shell:latest<br>
+                            docker run -it hmenkor/mini-shell:latest
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <div class="project-version">v1.0.3</div>
+        </div>
+        
+        <div id="mini-shell-demo-container"></div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <div class="project-image">
+                    <div class="project-thumbnail"><img src="images/icons/skills.png" alt="Gestionnaire de Mots de Passe" width="48" height="48" loading="lazy"></div>
+                    <div class="project-actions">
+                        <button class="action-button primary-button" style="flex: 1;">
+                            <span class="action-icon">▶️</span> Lancer la démo
+                        </button>
+                    </div>
+                    <div class="project-actions">
+                        <button class="action-button secondary-button" style="flex: 1;">
+                            <span class="action-icon">📥</span> Télécharger
+                        </button>
+                        <button class="action-button secondary-button" style="flex: 1;">
+                            <span class="action-icon">📄</span> Code
+                        </button>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <div class="project-header">
+                        <h3 class="project-title">Gestionnaire de Mots de Passe</h3>
+                        <div class="project-language">Langage C</div>
+                    </div>
+                    <div class="project-tags">
+                        <div class="project-tag">Sécurité</div>
+                        <div class="project-tag">Cryptographie</div>
+                        <div class="project-tag">CLI</div>
+                    </div>
+                    <p class="project-description">
+                        Système complet de gestion de mots de passe avec les fonctionnalités suivantes:
+                    </p>
+                    <ul class="project-features">
+                        <li>Chiffrement/Déchiffrement sécurisé des données</li>
+                        <li>Authentification à 2 facteurs</li>
+                        <li>Générateur de mots de passe robustes</li>
+                        <li>Interface en ligne de commande intuitive</li>
+                    </ul>
+                    <div class="project-docker">
+                        <div class="docker-title">Lancer avec Docker:</div>
+                        <code class="docker-command">
+                            docker pull hmenkor/password-manager:latest<br>
+                            docker run -it hmenkor/password-manager:latest
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <div class="project-version">v1.2.0</div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <div class="project-image">
+                    <div class="project-thumbnail"><img src="images/icons/education.png" alt="OSINT Tool" width="48" height="48" loading="lazy"></div>
+                    <div class="project-actions">
+                        <button class="action-button primary-button" style="flex: 1;">
+                            <span class="action-icon">▶️</span> Lancer la démo
+                        </button>
+                    </div>
+                    <div class="project-actions">
+                        <button class="action-button secondary-button" style="flex: 1;">
+                            <span class="action-icon">📥</span> Télécharger
+                        </button>
+                        <button class="action-button secondary-button" style="flex: 1;">
+                            <span class="action-icon">📄</span> Code
+                        </button>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <div class="project-header">
+                        <h3 class="project-title">OSINT Tool</h3>
+                        <div class="project-language">Python</div>
+                    </div>
+                    <div class="project-tags">
+                        <div class="project-tag">Web Scraping</div>
+                        <div class="project-tag">Analyse de données</div>
+                        <div class="project-tag">BeautifulSoup</div>
+                    </div>
+                    <p class="project-description">
+                        Outil d'extraction et d'analyse d'informations open source avec:
+                    </p>
+                    <ul class="project-features">
+                        <li>Extraction automatisée depuis diverses sources web</li>
+                        <li>Triage intelligent des informations pertinentes</li>
+                        <li>Architecture orientée objet pour une extensibilité facile</li>
+                        <li>Génération de rapports structurés</li>
+                    </ul>
+                    <div class="project-docker">
+                        <div class="docker-title">Lancer avec Docker:</div>
+                        <code class="docker-command">
+                            docker pull hmenkor/osint-tool:latest<br>
+                            docker run -it hmenkor/osint-tool:latest
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <div class="project-version">v2.1.0</div>
+        </div>
+    `;
+    
+    // Initialiser le terminal Docker pour le Mini Shell
+    initMiniShellDocker(document.getElementById('mini-shell-demo-container'));
+    
+    // Ajouter un gestionnaire d'événements pour le bouton de lancement
+    document.getElementById('run-mini-shell').addEventListener('click', function() {
+        // Faire défiler jusqu'au terminal
+        document.getElementById('mini-shell-demo-container').scrollIntoView({ behavior: 'smooth' });
+        
+        // Démarrer le container si nécessaire
+        if (containerStatus !== 'running') {
+            startMiniShellContainer();
+        }
+    });
+}
+
+/**
+ * Charge le contenu de la page Docker Hub
+ */
+function loadDockerPage() {
+    const container = document.getElementById('docker-page');
+    
+    container.innerHTML = `
+        <div class="page-title">Docker Hub</div>
+        
+        <div class="section-title">
+            Mes Images Docker
+        </div>
+        
+        <div class="project-card">
+            <div class="project-content">
+                <div class="project-image">
+                    <div class="project-thumbnail"><img src="images/icons/docker.png" alt="Docker Image" width="48" height="48" loading="lazy"></div>
+                    <div class="project-actions">
+                        <button class="action-button primary-button" style="flex: 1;">
+                            <span class="action-icon">📥</span> Télécharger
+                        </button>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <div class="project-header">
+                        <h3 class="project-title">hmenkor/password-manager</h3>
+                        <div class="project-language">95 Téléchargements</div>
+                    </div>
+                    <p class="project-description">
+                        Image Docker contenant le gestionnaire de mots de passe avec toutes les dépendances installées.
+                    </p>
+                    <div class="project-docker">
+                        <div class="docker-title">Télécharger et lancer:</div>
+                        <code class="docker-command">
+                            docker pull hmenkor/password-manager:latest<br>
+                            docker run -it hmenkor/password-manager:latest
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <div class="project-version">v1.2.0</div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-content">
+                <div class="project-image">
+                    <div class="project-thumbnail"><img src="images/icons/docker.png" alt="Docker Image" width="48" height="48" loading="lazy"></div>
+                    <div class="project-actions">
+                        <button class="action-button primary-button" style="flex: 1;">
+                            <span class="action-icon">📥</span> Télécharger
+                        </button>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <div class="project-header">
+                        <h3 class="project-title">hmenkor/osint-tool</h3>
+                        <div class="project-language">78 Téléchargements</div>
+                    </div>
+                    <p class="project-description">
+                        Image Docker contenant l'outil OSINT avec Python et les bibliothèques nécessaires.
+                    </p>
+                    <div class="project-docker">
+                        <div class="docker-title">Télécharger et lancer:</div>
+                        <code class="docker-command">
+                            docker pull hmenkor/osint-tool:latest<br>
+                            docker run -it hmenkor/osint-tool:latest
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <div class="project-version">v2.1.0</div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-content">
+                <div class="project-image">
+                    <div class="project-thumbnail"><img src="images/icons/docker.png" alt="Docker Image" width="48" height="48" loading="lazy"></div>
+                    <div class="project-actions">
+                        <button class="action-button primary-button" style="flex: 1;">
+                            <span class="action-icon">📥</span> Télécharger
+                        </button>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <div class="project-header">
+                        <h3 class="project-title">hmenkor/mini-shell</h3>
+                        <div class="project-language">42 Téléchargements</div>
+                    </div>
+                    <p class="project-description">
+                        Image Docker contenant le shell minimal implémenté en C.
+                    </p>
+                    <div class="project-docker">
+                        <div class="docker-title">Télécharger et lancer:</div>
+                        <code class="docker-command">
+                            docker pull hmenkor/mini-shell:latest<br>
+                            docker run -it hmenkor/mini-shell:latest
+                        </code>
+                    </div>
+                </div>
+            </div>
+            <div class="project-version">v1.0.3</div>
+        </div>
+    `;
+}
+
+/**
+ * Charge le contenu de la page Compétences
+ */
+function loadSkillsPage() {
+    const container = document.getElementById('skills-page');
+    
+    container.innerHTML = `
+        <div class="page-title">Compétences</div>
+        
+        <div class="section-title">
+            Langages de programmation
+        </div>
+        
+        <div class="skills-container">
+            <div class="skill-badge lang-skill">C</div>
+            <div class="skill-badge lang-skill">Python</div>
+            <div class="skill-badge lang-skill">MySQL</div>
+            <div class="skill-badge lang-skill">Bash</div>
+        </div>
+        
+        <div class="section-title">
+            Frameworks & Bibliothèques
+        </div>
+        
+        <div class="skills-container">
+            <div class="skill-badge framework-skill">Flask</div>
+            <div class="skill-badge framework-skill">GTK4</div>
+            <div class="skill-badge framework-skill">Tkinter</div>
+            <div class="skill-badge framework-skill">FastAPI</div>
+        </div>
+        
+        <div class="section-title">
+            Outils de réseau & Cybersécurité
+        </div>
+        
+        <div class="skills-container">
+            <div class="skill-badge tool-skill">Wireshark</div>
+            <div class="skill-badge tool-skill">Cisco Packet Tracer</div>
+            <div class="skill-badge tool-skill">GNS3</div>
+            <div class="skill-badge tool-skill">Nmap</div>
+            <div class="skill-badge tool-skill">Metasploit</div>
+            <div class="skill-badge tool-skill">Kali Linux</div>
+        </div>
+        
+        <div class="section-title">
+            Plateformes & Systèmes
+        </div>
+        
+        <div class="skills-container">
+            <div class="skill-badge platform-skill">VirtualBox</div>
+            <div class="skill-badge platform-skill">VMware</div>
+            <div class="skill-badge platform-skill">Docker</div>
+            <div class="skill-badge platform-skill">Apache2</div>
+            <div class="skill-badge platform-skill">Linux</div>
+        </div>
+        
+        <div class="stats-box">
+            <div class="big-number">10+</div>
+            <div class="stats-description">
+                Compétences techniques
+            </div>
+            <div class="stats-graph">
+                <div class="graph-line">
+                    <svg class="graph-svg" viewBox="0 0 100 30">
+                        <path d="M0,15 Q10,5 20,20 T40,10 T60,15 T80,5 T100,15" fill="none" stroke="#333" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">
+            Langues & Centres d'intérêt
+        </div>
+        
+        <div class="interests-container">
+            <div class="interests-box languages-box">
+                <h3 class="interests-title">Langues</h3>
+                <ul class="interests-list">
+                    <li>Français (Natif)</li>
+                    <li>Anglais - IELTS (6.5/9) & TOEIC (875/990)</li>
+                </ul>
+            </div>
+            
+            <div class="interests-box hobbies-box">
+                <h3 class="interests-title">Centres d'intérêt</h3>
+                <ul class="interests-list">
+                    <li>Jeux Vidéo</li>
+                    <li>Sport Automobile</li>
+                    <li>Actualité Cyber</li>
+                    <li>Membre - Kernel Panic System (K.P.S.)</li>
+                    <li>Membre & Assistant Informatique - Association Maroc Solidaire</li>
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Charge le contenu de la page Contact
+ */
+function loadContactPage() {
+    const container = document.getElementById('contact-page');
+    
+    container.innerHTML = `
+        <div class="page-title">Contact</div>
+        
+        <div class="project-card">
+            <div class="project-content">
+                <div class="project-image">
+                    <div class="project-thumbnail">📧</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-header">
+                        <h3 class="project-title">Coordonnées</h3>
+                    </div>
+                    <p class="project-description">
+                        N'hésitez pas à me contacter pour toute opportunité d'alternance ou de collaboration.
+                    </p>
+                    <ul class="project-features">
+                        <li><strong>Email:</strong> hamza.menkor@proton.me</li>
+                        <li><strong>LinkedIn:</strong> linkedin.com/in/hamza-menkor</li>
+                        <li><strong>GitHub:</strong> github.com/hmenkor</li>
+                        <li><strong>Discord:</strong> hmenkor#1234</li>
+                        <li><strong>Localisation:</strong> Paris, France</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-content">
+                <div class="project-details" style="width: 100%;">
+                    <div class="project-header">
+                        <h3 class="project-title">Formulaire de contact</h3>
+                    </div>
+                    <form id="contact-form" style="margin-top: 20px;">
+                        <div style="margin-bottom: 15px;">
+                            <label for="name" style="display: block; margin-bottom: 5px;">Nom</label>
+                            <input type="text" id="name" style="width: 100%; padding: 8px; border: 1px solid var(--border-color); border-radius: 4px; font-family: monospace;">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label for="email" style="display: block; margin-bottom: 5px;">Email</label>
+                            <input type="email" id="email" style="width: 100%; padding: 8px; border: 1px solid var(--border-color); border-radius: 4px; font-family: monospace;">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label for="subject" style="display: block; margin-bottom: 5px;">Sujet</label>
+                            <input type="text" id="subject" style="width: 100%; padding: 8px; border: 1px solid var(--border-color); border-radius: 4px; font-family: monospace;">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label for="message" style="display: block; margin-bottom: 5px;">Message</label>
+                            <textarea id="message" rows="5" style="width: 100%; padding: 8px; border: 1px solid var(--border-color); border-radius: 4px; font-family: monospace; resize: vertical;"></textarea>
+                        </div>
+                        <button type="submit" class="action-button primary-button" style="width: 100%;">
+                            <span class="action-icon">📤</span> Envoyer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Ajouter un gestionnaire d'événements pour le formulaire
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        if (name && email && subject && message) {
+            alert(`Merci ${name} ! Votre message a été envoyé.`);
+            this.reset();
+        } else {
+            alert('Veuillez remplir tous les champs du formulaire.');
+        }
+    });
+}
+
+/**
+ * Optimisation du chargement des images
+ * Ajoute les attributs loading="lazy" et fetchpriority aux images en fonction de leur visibilité
+ */
+function optimizeImages() {
+    // Sélectionner toutes les images
+    const images = document.querySelectorAll('img');
+    
+    // Pour chaque image
+    images.forEach((img, index) => {
+        // Si l'image n'a pas déjà l'attribut loading
+        if (!img.hasAttribute('loading')) {
+            // Ajouter l'attribut loading="lazy" sauf pour les 3 premières images
+            img.setAttribute('loading', index < 3 ? 'eager' : 'lazy');
+        }
+        
+        // Ajouter l'attribut fetchpriority pour les images importantes
+        if (index < 3 && !img.hasAttribute('fetchpriority')) {
+            img.setAttribute('fetchpriority', 'high');
+        }
+        
+        // Ajouter l'attribut decoding pour optimiser le rendu
+        if (!img.hasAttribute('decoding')) {
+            img.setAttribute('decoding', 'async');
+        }
+    });
+}
+
+/**
+ * Fonction pour nettoyer et optimiser les ressources
+ */
+function optimizeResources() {
+    // Optimiser les images
+    optimizeImages();
+    
+    // Précharger les pages qui seront probablement visitées
+    const pagesToPreload = ['home', 'projects', 'docker'];
+    pagesToPreload.forEach(page => {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = `#${page}-page`;
+        document.head.appendChild(link);
+    });
+}
+
+// Appel initial de chargement
+document.addEventListener('DOMContentLoaded', () => {
+    loadAllContent();
+    
+    // Optimiser après le chargement du contenu
+    setTimeout(optimizeResources, 100);
+    
+    // Ajouter un event listener pour les changements de page
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+            // Optimiser après chaque changement de page
+            setTimeout(optimizeResources, 100);
+        });
+    });
+});

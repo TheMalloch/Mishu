@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CV interactif de Hamza Menkor - Développeur Full Stack">
+    <meta name="keywords" content="CV, développeur, portfolio, Docker, Mini Shell">
+    <meta name="author" content="Hamza Menkor">
+    <meta name="theme-color" content="#2a2f39">
+    <title>Hamza Menkor - CV Interactif</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/docker.css">
+    <link rel="stylesheet" href="css/optimizations.css">
+    <!-- Précharger les styles et les scripts critiques -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <link rel="preload" href="images/profile_new.jpg" as="image" fetchpriority="high">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">&lt;/&gt;</div>
+                <span>Hamza Menkor</span>
+            </div>
+            
+            <div class="nav-item active" data-page="home">
+                <div class="nav-icon">🏠</div>
+                <span>Accueil</span>
+            </div>
+            
+            <div class="nav-item" data-page="education">
+                <div class="nav-icon">📅</div>
+                <span>Formation</span>
+            </div>
+            
+            <div class="nav-item" data-page="projects">
+                <div class="nav-icon">🧑‍💻</div>
+                <span>Projets</span>
+            </div>
+            
+            <div class="nav-item" data-page="docker">
+                <div class="nav-icon">📦</div>
+                <span>Docker Hub</span>
+            </div>
+            
+            <div class="nav-item" data-page="skills">
+                <div class="nav-icon">📚</div>
+                <span>Compétences</span>
+            </div>
+            
+            <div class="nav-item" data-page="contact">
+                <div class="nav-icon">📧</div>
+                <span>Contact</span>
+            </div>
+            
+            <div class="spacer-top"></div>
+            
+            <div class="nav-item" id="download-cv">
+                <div class="nav-icon">📄</div>
+                <span>Télécharger CV</span>
+            </div>
+            
+            <div class="nav-item" id="linkedin">
+                <div class="nav-icon">🔗</div>
+                <span>LinkedIn</span>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <div class="back-button" id="back-btn">&lt;</div>
+                <div class="search-user">
+                    <input type="text" class="search-bar" placeholder="Rechercher dans mon CV...">
+                    <div class="user-icons">
+                        <div class="user-icon">🔔</div>
+                        <div class="user-icon">👤</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pages de contenu - chargées dynamiquement -->
+            <div id="content-container">
+                <!-- La page d'accueil est chargée par défaut -->
+                <div id="home-page" class="content-page active">
+                    <!-- Image de profil chargée directement en HTML pour éviter le flash -->
+                    <div class="featured-trainer" style="display:none" id="profile-preload">
+                        <div class="trainer-photo">
+                            <img src="images/profile_new.jpg?v=20250511" alt="Photo de profil" loading="eager" fetchpriority="high">
+                        </div>
+                    </div>
+                    <!-- Le reste du contenu sera chargé par JavaScript -->
+                </div>
+                
+                <div id="education-page" class="content-page">
+                    <!-- Le contenu de cette page sera chargé par JavaScript -->
+                </div>
+                
+                <div id="projects-page" class="content-page">
+                    <!-- Le contenu de cette page sera chargé par JavaScript -->
+                </div>
+                
+                <div id="docker-page" class="content-page">
+                    <!-- Le contenu de cette page sera chargé par JavaScript -->
+                </div>
+                
+                <div id="skills-page" class="content-page">
+                    <!-- Le contenu de cette page sera chargé par JavaScript -->
+                </div>
+                
+                <div id="contact-page" class="content-page">
+                    <!-- Le contenu de cette page sera chargé par JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script src="js/docker-api.js"></script>
+    <script src="js/docker-ui.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/content-loader.js"></script>
+    <script src="js/optimization.js"></script>
+    <script src="js/docker-logs.js"></script>
+    
+    <!-- Service Worker pour améliorer les performances -->
+    <script>
+        // Enregistrer le service worker si le navigateur le prend en charge
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker enregistré avec succès:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Échec de l\'enregistrement du Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

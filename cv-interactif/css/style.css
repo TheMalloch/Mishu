@@ -1,0 +1,605 @@
+:root {
+    --bg-mint: #c2e6d8;
+    --bg-peach: #f8d5bc;
+    --bg-lavender: #f3d1f4;
+    --bg-main: #f2f2e2;
+    --border-color: #333;
+    --sidebar-width: 240px;
+}
+
+/* Styles de base */
+body {
+    font-family: monospace;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #7ed6df 0%, #f9ca9c 50%, #f79f9f 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    width: 90%;
+    max-width: 1000px;
+    height: 85vh;
+    background-color: var(--bg-main);
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    overflow: hidden;
+}
+
+/* Styles de la sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--bg-mint);
+    border-right: 2px solid var(--border-color);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.logo-icon {
+    margin-right: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 2px 4px;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 4px 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-item.active {
+    background-color: rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.nav-icon {
+    margin-right: 10px;
+    width: 16px;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.spacer-top {
+    margin-top: auto;
+}
+
+/* Styles du contenu principal */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.search-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-bar {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    width: 200px;
+    font-family: monospace;
+}
+
+.user-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.user-icon:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Gestion des pages de contenu */
+.content-page {
+    display: none;
+}
+
+.content-page.active {
+    display: block;
+}
+
+/* Titres de page */
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Profil principal */
+.featured-trainer {
+    background-color: var(--bg-peach);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.trainer-photo {
+    width: 140px;
+    height: 140px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #eee;
+    margin-right: 20px;
+}
+
+.trainer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.trainer-info {
+    flex: 1;
+}
+
+.trainer-name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.trainer-email {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.trainer-stats {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.stat-box {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 8px 12px;
+    text-align: center;
+    min-width: 70px;
+}
+
+.stat-value {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.stat-label {
+    font-size: 12px;
+}
+
+.trainer-description {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.trainer-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+}
+
+.primary-button {
+    background-color: #333;
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #444;
+}
+
+.secondary-button {
+    background-color: white;
+}
+
+.secondary-button:hover {
+    background-color: #f5f5f5;
+}
+
+.action-icon {
+    margin-right: 5px;
+}
+
+/* Titres de section */
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 30px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-all {
+    font-size: 14px;
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.view-all:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Cartes d'expérience */
+.experience-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.company-logo {
+    width: 50px;
+    height: 50px;
+    background-color: #f1f1f1;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.experience-details {
+    flex: 1;
+}
+
+.job-title {
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.company-name {
+    margin-bottom: 3px;
+}
+
+.date-range {
+    font-size: 12px;
+    color: #555;
+}
+
+/* Statistiques */
+.stats-box {
+    background-color: var(--bg-lavender);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.big-number {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.stats-description {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.stats-graph {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.graph-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.graph-svg {
+    width: 100%;
+    height: 30px;
+}
+
+/* Badges de compétences */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.skill-badge {
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 5px 12px;
+    transition: transform 0.2s ease;
+}
+
+.skill-badge:hover {
+    transform: scale(1.05);
+}
+
+.lang-skill {
+    background-color: #dff0d8;
+}
+
+.framework-skill {
+    background-color: #d9edf7;
+}
+
+.tool-skill {
+    background-color: #fcf8e3;
+}
+
+.platform-skill {
+    background-color: #f2dede;
+}
+
+/* Projets */
+.project-card {
+    background-color: var(--bg-lavender);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.project-content {
+    display: flex;
+    gap: 20px;
+}
+
+.project-image {
+    width: 30%;
+    min-width: 200px;
+}
+
+.project-thumbnail {
+    background-color: #333;
+    border-radius: 8px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 40px;
+}
+
+.project-thumbnail img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.project-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.project-details {
+    flex: 1;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.project-title {
+    margin: 0;
+    font-size: 22px;
+}
+
+.project-language {
+    background-color: #333;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.project-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.project-tag {
+    background-color: #dff0d8;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 3px 10px;
+    font-size: 12px;
+}
+
+.project-description {
+    margin-bottom: 10px;
+}
+
+.project-features {
+    margin-top: 0;
+    padding-left: 20px;
+}
+
+.project-docker {
+    margin-top: 15px;
+    background-color: rgba(255,255,255,0.6);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.docker-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.docker-command {
+    background-color: #f5f5f5;
+    padding: 5px;
+    border-radius: 5px;
+    display: block;
+    font-family: monospace;
+}
+
+.project-version {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #333;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* Langues et centres d'intérêt */
+.interests-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.interests-box {
+    width: 48%;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.languages-box {
+    background-color: #d9edf7;
+}
+
+.hobbies-box {
+    background-color: #dff0d8;
+}
+
+.interests-title {
+    margin-top: 0;
+}
+
+.interests-list {
+    padding-left: 20px;
+}
+
+/* Animation de transition */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
